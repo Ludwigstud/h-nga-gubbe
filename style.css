@@ -16,9 +16,17 @@ body {
 }
 
 #letters {
+	margin-top: 80px;
 	display: flex;
 	flex-direction: row;
+	text-align: center;
 	p {
-		margin: 5px;
+		margin: 15px;
+		font-size: 32px;
 	}
+}
+
+p {
+	border: 1px solid red;
+	width: 50px;
 }

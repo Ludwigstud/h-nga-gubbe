@@ -78,7 +78,6 @@ function wordPicker() {
 	const div = document.querySelector("#letters");
 	word.forEach((letter) => {
 		let lett = document.createElement("p");
-		lett.innerText = letter;
 
 		div.appendChild(lett);
 	});
@@ -88,6 +87,7 @@ function wordPicker() {
 }
 
 function winOrLose() {
+	guesses++;
 	//if guesses 5 lose
 	//check css hidden or innerText
 	//guess = 5 lose else win
