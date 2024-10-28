@@ -9,7 +9,6 @@ document.addEventListener("keydown", buttonPressed);
 
 function startGame() {
 	wordPicker();
-
 }
 
 function buttonPressed(pressed) {
@@ -20,36 +19,34 @@ function buttonPressed(pressed) {
 	winOrLose();
 
 	if (word.length == 3) {
-		
-       if(pressed.key == word[0]) {
-           console.log("Det var den första bokstaven") //pressed key to innerText
-	   } else if(pressed.key == word[1]) {
-		   console.log("Det var den andra bokstaven") //pressed key to innerText
-	   } else if (pressed.key == word[2]) {
-		   console.log("Det var den tredje bokstaven") //pressed key to innerText
-	   }
-
-	} else if (word.length == 4) {
-		if(pressed.key == word[0]) {
-			console.log("Det var den första bokstaven") //pressed key to innerText
-		} else if(pressed.key == word[1]) {
-			console.log("Det var den andra bokstaven") //pressed key to innerText
+		if (pressed.key == word[0]) {
+			console.log("Det var den första bokstaven"); //pressed key to innerText
+		} else if (pressed.key == word[1]) {
+			console.log("Det var den andra bokstaven"); //pressed key to innerText
 		} else if (pressed.key == word[2]) {
-			console.log("Det var den tredje bokstaven") //pressed key to innerText
+			console.log("Det var den tredje bokstaven"); //pressed key to innerText
+		}
+	} else if (word.length == 4) {
+		if (pressed.key == word[0]) {
+			console.log("Det var den första bokstaven"); //pressed key to innerText
+		} else if (pressed.key == word[1]) {
+			console.log("Det var den andra bokstaven"); //pressed key to innerText
+		} else if (pressed.key == word[2]) {
+			console.log("Det var den tredje bokstaven"); //pressed key to innerText
 		} else if (pressed.key == word[3]) {
-			console.log("Det var den fjärde bokstaven") //pressed key to innerText
+			console.log("Det var den fjärde bokstaven"); //pressed key to innerText
 		}
 	} else if (word.length == 5) {
-		if(pressed.key == word[0]) {
-			console.log("Det var den första bokstaven") //pressed key to innerText
-		} else if(pressed.key == word[1]) {
-			console.log("Det var den andra bokstaven") //pressed key to innerText
+		if (pressed.key == word[0]) {
+			console.log("Det var den första bokstaven"); //pressed key to innerText
+		} else if (pressed.key == word[1]) {
+			console.log("Det var den andra bokstaven"); //pressed key to innerText
 		} else if (pressed.key == word[2]) {
-			console.log("Det var den tredje bokstaven") //pressed key to innerText
+			console.log("Det var den tredje bokstaven"); //pressed key to innerText
 		} else if (pressed.key == word[3]) {
-			console.log("Det var den fjärde bokstaven") //pressed key to innerText 
+			console.log("Det var den fjärde bokstaven"); //pressed key to innerText
 		} else if (pressed.key == word[4]) {
-			console.log("Det var den femte bokstaven") //pressed key to innerText
+			console.log("Det var den femte bokstaven"); //pressed key to innerText
 		}
 	}
 }
@@ -77,13 +74,17 @@ function wordPicker() {
 			);
 
 		console.log(word);
-
 	}
-
+	const div = document.querySelector("#letters");
 	word.forEach((letter) => {
-		
+		let lett = document.createElement("p");
+		lett.innerText = letter;
+
+		div.appendChild(lett);
 	});
-	
+
+	const test = document.querySelectorAll("p");
+	console.log(test[0]);
 }
 
 function winOrLose() {
