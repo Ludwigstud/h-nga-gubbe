@@ -1,13 +1,15 @@
-const thirdLetterWord = ["Cat", "Dog", "Sun", "Pen", "Hat"];
-const fourLetterWord = ["Book", "Tree", "Fish", "Ball", "Door"];
-const fiveLetterWord = ["Apple", "House", "Bread", "Water", "Light"];
+const thirdLetterWord = ["cat", "dog", "sun", "pen", "hat"];
+const fourLetterWord = ["pear", "card", "fish", "cart", "fart"];
+const fiveLetterWord = ["crazy", "house", "bread", "water", "light"];
 let keysPressed = [];
 let guesses = 0;
+let word;
 
 document.addEventListener("keydown", buttonPressed);
 
 function startGame() {
 	wordPicker();
+
 }
 
 function buttonPressed(pressed) {
@@ -18,20 +20,42 @@ function buttonPressed(pressed) {
 	winOrLose();
 
 	if (word.length == 3) {
-		if (
-			pressed.key == word[0] ||
-			pressed.key == word[1] ||
-			pressed.key == word[2]
-		) {
-		}
+		
+       if(pressed.key == word[0]) {
+           console.log("Det var den första bokstaven") //pressed key to innerText
+	   } else if(pressed.key == word[1]) {
+		   console.log("Det var den andra bokstaven") //pressed key to innerText
+	   } else if (pressed.key == word[2]) {
+		   console.log("Det var den tredje bokstaven") //pressed key to innerText
+	   }
+
 	} else if (word.length == 4) {
+		if(pressed.key == word[0]) {
+			console.log("Det var den första bokstaven") //pressed key to innerText
+		} else if(pressed.key == word[1]) {
+			console.log("Det var den andra bokstaven") //pressed key to innerText
+		} else if (pressed.key == word[2]) {
+			console.log("Det var den tredje bokstaven") //pressed key to innerText
+		} else if (pressed.key == word[3]) {
+			console.log("Det var den fjärde bokstaven") //pressed key to innerText
+		}
 	} else if (word.length == 5) {
+		if(pressed.key == word[0]) {
+			console.log("Det var den första bokstaven") //pressed key to innerText
+		} else if(pressed.key == word[1]) {
+			console.log("Det var den andra bokstaven") //pressed key to innerText
+		} else if (pressed.key == word[2]) {
+			console.log("Det var den tredje bokstaven") //pressed key to innerText
+		} else if (pressed.key == word[3]) {
+			console.log("Det var den fjärde bokstaven") //pressed key to innerText 
+		} else if (pressed.key == word[4]) {
+			console.log("Det var den femte bokstaven") //pressed key to innerText
+		}
 	}
 }
 
 function wordPicker() {
 	let rnd = Math.floor(Math.random() * 3);
-	let word;
 	if (rnd == 0) {
 		word =
 			thirdLetterWord[Math.floor(Math.random() * thirdLetterWord.length)].split(
@@ -53,10 +77,13 @@ function wordPicker() {
 			);
 
 		console.log(word);
-		word.forEach((letter) => {
-			//show rectangles for letters in word
-		});
+
 	}
+
+	word.forEach((letter) => {
+		
+	});
+	
 }
 
 function winOrLose() {
