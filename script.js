@@ -5,21 +5,22 @@ let keysPressed = [];
 let guesses = 0;
 let word;
 const hangman = ["scaffold", "head", "body", "arms", "legs"];
+
 let hangmanCounter = 0;
 document.addEventListener("keydown", buttonPressed);
-
+document
+	.querySelector(".restart-win")
+	.addEventListener("click", () => location.reload());
+document
+	.querySelector(".restart-loss")
+	.addEventListener("click", () => location.reload());
 function startGame() {
 	wordPicker();
 }
 
 function buttonPressed(pressed) {
-	if (!keysPressed.includes(pressed.key)) {
-		keysPressed.push(pressed.key);
-	}
-	console.log(pressed.key);
-	winOrLose();
-
-	if (word.length == 3) {
+	if (hangmanCounter > 4) {
+	} else if (word.length == 3) {
 		if (pressed.key == word[0]) {
 			letters[0].innerText = word[0];
 		} else if (pressed.key == word[1]) {
@@ -27,10 +28,17 @@ function buttonPressed(pressed) {
 		} else if (pressed.key == word[2]) {
 			letters[2].innerText = word[2];
 		} else {
-			guesses++;
-			document.querySelector(`#${hangman[hangmanCounter]}`).style.display =
-				"block";
-			hangmanCounter++;
+			if (document.querySelector("#win-screen").style.display != "flex") {
+				if (!keysPressed.includes(pressed.key)) {
+					keysPressed.push(pressed.key);
+					guesses++;
+					document.querySelector(`#${hangman[hangmanCounter]}`).style.display =
+						"block";
+					hangmanCounter++;
+					usedLetters.appendChild(wrongLetter);
+					wrongLetter.innerText = `${keysPressed} `;
+				}
+			}
 		}
 	} else if (word.length == 4) {
 		if (pressed.key == word[0]) {
@@ -42,10 +50,17 @@ function buttonPressed(pressed) {
 		} else if (pressed.key == word[3]) {
 			letters[3].innerText = word[3];
 		} else {
-			guesses++;
-			document.querySelector(`#${hangman[hangmanCounter]}`).style.display =
-				"block";
-			hangmanCounter++;
+			if (document.querySelector("#win-screen").style.display != "flex") {
+				if (!keysPressed.includes(pressed.key)) {
+					keysPressed.push(pressed.key);
+					guesses++;
+					document.querySelector(`#${hangman[hangmanCounter]}`).style.display =
+						"block";
+					hangmanCounter++;
+					usedLetters.appendChild(wrongLetter);
+					wrongLetter.innerText = `${keysPressed} `;
+				}
+			}
 		}
 	} else if (word.length == 5) {
 		if (pressed.key == word[0]) {
@@ -59,13 +74,31 @@ function buttonPressed(pressed) {
 		} else if (pressed.key == word[4]) {
 			letters[4].innerText = word[4];
 		} else {
-			guesses++;
-			document.querySelector(`#${hangman[hangmanCounter]}`).style.display =
-				"block";
-			hangmanCounter++;
+			if (document.querySelector("#win-screen").style.display != "flex") {
+				if (!keysPressed.includes(pressed.key)) {
+					keysPressed.push(pressed.key);
+					guesses++;
+					document.querySelector(`#${hangman[hangmanCounter]}`).style.display =
+						"block";
+					hangmanCounter++;
+					usedLetters.appendChild(wrongLetter);
+					wrongLetter.innerText = `${keysPressed} `;
+				}
+			}
 		}
 	}
-	console.log(guesses);
+
+	if (compareArrays()) {
+		win();
+	} else {
+	}
+
+	if (
+		hangmanCounter == 5 &&
+		document.querySelector("#win-screen").style.display != "flex"
+	) {
+		lose();
+	}
 }
 
 function wordPicker() {
@@ -75,37 +108,45 @@ function wordPicker() {
 			thirdLetterWord[Math.floor(Math.random() * thirdLetterWord.length)].split(
 				""
 			);
-
-		console.log(word);
 	} else if (rnd == 1) {
 		word =
 			fourLetterWord[Math.floor(Math.random() * fourLetterWord.length)].split(
 				""
 			);
-
-		console.log(word);
 	} else {
 		word =
 			fiveLetterWord[Math.floor(Math.random() * fiveLetterWord.length)].split(
 				""
 			);
-
-		console.log(word);
 	}
 	const div = document.querySelector("#letters");
 	word.forEach((letter) => {
-		let lett = document.createElement("p");
-
-		div.appendChild(lett);
+		let letterBox = document.createElement("p");
+		div.appendChild(letterBox);
 	});
 }
 
-function winOrLose() {
-	if (guesses >= 5) {
-		console.log("u lost");
-	}
+function lose() {
+	document.querySelector("#loss-screen").style.display = "flex";
 }
-
+function win() {
+	document.querySelector("#win-screen").style.display = "flex";
+}
 startGame();
 
 const letters = document.querySelectorAll("p");
+
+function compareArrays() {
+	const lettersArray = Array.from(letters).map((el) => el.innerText);
+
+	for (let i = 0; i < word.length; i++) {
+		if (word[i] !== lettersArray[i]) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+usedLetters = document.querySelector(".used-letters");
+let wrongLetter = document.createElement("p");
