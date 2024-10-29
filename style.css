@@ -41,7 +41,7 @@ body {
 	align-items: center;
 	border-radius: 15px;
 	position: absolute;
-	margin-top: 15%;
+	margin-top: 10%;
 	gap: 40px;
     display: none;
   }
@@ -66,7 +66,27 @@ body {
 	align-items: center;
 	border-radius: 15px;
 	position: absolute;
-	margin-top: 15%;
+	margin-top: 10%;
 	gap: 40px;
 	display: none;
+  }
+
+  button {
+	background: #ffefba;
+	border: none;
+	border-radius: 10px;
+	height: 40px;
+	width: 100px;
+	font-family: arial;
+	font-size: 18px;
+	text-align: center;
+	transition: 0.2s;
+  }
+
+  button:hover {
+	background-color: #a19877;
+	color: white;
+	width: 108px;
+	height: 44px;
+    transition: 0.2s;
   }
