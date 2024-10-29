@@ -105,19 +105,16 @@ function buttonPressed(pressed) {
 function wordPicker() {
 	let rnd = Math.floor(Math.random() * 3);
 	if (rnd == 0) {
-		document.querySelector("#the-word-was").innerText = `The word was: "${thirdLetterWord[Math.floor(Math.random() * thirdLetterWord.length)]}"`
 		word =
 			thirdLetterWord[Math.floor(Math.random() * thirdLetterWord.length)].split(
 				""
 			);
 	} else if (rnd == 1) {
-		document.querySelector("#the-word-was").innerText = `The word was: "${fourLetterWord[Math.floor(Math.random() * fourLetterWord.length)]}"`
 		word =
 			fourLetterWord[Math.floor(Math.random() * fourLetterWord.length)].split(
 				""
 			);
 	} else {
-		document.querySelector("#the-word-was").innerText = `The word was: "${fiveLetterWord[Math.floor(Math.random() * fiveLetterWord.length)]}"`
 		word =
 			fiveLetterWord[Math.floor(Math.random() * fiveLetterWord.length)].split(
 				""
@@ -154,4 +151,4 @@ function compareArrays() {
 
 usedLetters = document.querySelector(".used-letters");
 let wrongLetter = document.createElement("p");
-
+document.querySelector("#the-word-was").innerText = `The word was: "${word.join('')}"`;
