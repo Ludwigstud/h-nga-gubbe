@@ -9,10 +9,16 @@ body {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	background-color: grey;
+	background: #1a1a1a;
 	position: relative;
 }
 
+svg {
+	filter: brightness(0) saturate(100%) invert(87%) sepia(100%) 
+	saturate(0%) hue-rotate(143deg) brightness(106%) contrast(101%);
+	margin-top: 10%;
+	z-index: 1;
+}
 .hide {
 	display: none;
 }
@@ -26,9 +32,11 @@ body {
 	p {
 		margin: 15px;
 		font-size: 32px;
-		border: 1px solid red;
+		border-bottom: 2px solid white;
+		border-radius: 2px;
 		width: 50px;
 		height: 50px;
+		color: orange;
 	}
 }
 
@@ -44,6 +52,7 @@ body {
 	margin-top: 10%;
 	gap: 40px;
 	display: none;
+	z-index: 2;
 }
 
 h1 {
@@ -67,12 +76,18 @@ h2 {
 	border-radius: 15px;
 	position: absolute;
 	margin-top: 10%;
-	gap: 40px;
+	gap: 20px;
 	display: none;
+	z-index: 2;
+}
+
+#the-word-was {
+	font-family: arial;
+	color: white;
 }
 
 button {
-	background: #ffefba;
+	background: white;
 	border: none;
 	border-radius: 10px;
 	height: 40px;
@@ -84,8 +99,7 @@ button {
 }
 
 button:hover {
-	background-color: #a19877;
-	color: white;
+	background-color: rgb(230, 230, 230);
 	width: 108px;
 	height: 44px;
 	transition: 0.2s;
@@ -93,4 +107,12 @@ button:hover {
 
 .used-letters {
 	display: flex;
+	margin-top: 40px;
+
+	p {
+		letter-spacing: 3px;
+		color: rgb(255, 59, 59);
+		font-size: 35px;
+	}
 }
+
