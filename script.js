@@ -20,33 +20,33 @@ function buttonPressed(pressed) {
 
 	if (word.length == 3) {
 		if (pressed.key == word[0]) {
-			console.log("Det var den första bokstaven"); //pressed key to innerText
+			letters[0].innerText = word[0];
 		} else if (pressed.key == word[1]) {
-			console.log("Det var den andra bokstaven"); //pressed key to innerText
+			letters[1].innerText = word[1];
 		} else if (pressed.key == word[2]) {
-			console.log("Det var den tredje bokstaven"); //pressed key to innerText
+			letters[2].innerText = word[2];
 		}
 	} else if (word.length == 4) {
 		if (pressed.key == word[0]) {
-			console.log("Det var den första bokstaven"); //pressed key to innerText
+			letters[0].innerText = word[0];
 		} else if (pressed.key == word[1]) {
-			console.log("Det var den andra bokstaven"); //pressed key to innerText
+			letters[1].innerText = word[1];
 		} else if (pressed.key == word[2]) {
-			console.log("Det var den tredje bokstaven"); //pressed key to innerText
+			letters[2].innerText = word[2];
 		} else if (pressed.key == word[3]) {
-			console.log("Det var den fjärde bokstaven"); //pressed key to innerText
+			letters[3].innerText = word[3];
 		}
 	} else if (word.length == 5) {
 		if (pressed.key == word[0]) {
-			console.log("Det var den första bokstaven"); //pressed key to innerText
+			letters[0].innerText = word[0];
 		} else if (pressed.key == word[1]) {
-			console.log("Det var den andra bokstaven"); //pressed key to innerText
+			letters[1].innerText = word[1];
 		} else if (pressed.key == word[2]) {
-			console.log("Det var den tredje bokstaven"); //pressed key to innerText
+			letters[2].innerText = word[2];
 		} else if (pressed.key == word[3]) {
-			console.log("Det var den fjärde bokstaven"); //pressed key to innerText
+			letters[3].innerText = word[3];
 		} else if (pressed.key == word[4]) {
-			console.log("Det var den femte bokstaven"); //pressed key to innerText
+			letters[4].innerText = word[4];
 		}
 	}
 }
@@ -81,9 +81,6 @@ function wordPicker() {
 
 		div.appendChild(lett);
 	});
-
-	const test = document.querySelectorAll("p");
-	console.log(test[0]);
 }
 
 function winOrLose() {
@@ -91,6 +88,12 @@ function winOrLose() {
 	//if guesses 5 lose
 	//check css hidden or innerText
 	//guess = 5 lose else win
+	console.log(guesses);
+	if (guesses >= 5) {
+		console.log("u lost");
+	}
 }
 
 startGame();
+
+const letters = document.querySelectorAll("p");
