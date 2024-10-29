@@ -6,7 +6,6 @@ let guesses = 0;
 let word;
 const hangman = ["scaffold", "head", "body", "arms", "legs"];
 
-
 let hangmanCounter = 0;
 document.addEventListener("keydown", buttonPressed);
 document
