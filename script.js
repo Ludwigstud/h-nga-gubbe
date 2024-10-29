@@ -4,7 +4,8 @@ const fiveLetterWord = ["crazy", "house", "bread", "water", "light"];
 let keysPressed = [];
 let guesses = 0;
 let word;
-
+const hangman = ["scaffold", "head", "body", "arms", "legs"];
+let hangmanCounter = 0;
 document.addEventListener("keydown", buttonPressed);
 
 function startGame() {
@@ -25,6 +26,11 @@ function buttonPressed(pressed) {
 			letters[1].innerText = word[1];
 		} else if (pressed.key == word[2]) {
 			letters[2].innerText = word[2];
+		} else {
+			guesses++;
+			document.querySelector(`#${hangman[hangmanCounter]}`).style.display =
+				"block";
+			hangmanCounter++;
 		}
 	} else if (word.length == 4) {
 		if (pressed.key == word[0]) {
@@ -35,6 +41,11 @@ function buttonPressed(pressed) {
 			letters[2].innerText = word[2];
 		} else if (pressed.key == word[3]) {
 			letters[3].innerText = word[3];
+		} else {
+			guesses++;
+			document.querySelector(`#${hangman[hangmanCounter]}`).style.display =
+				"block";
+			hangmanCounter++;
 		}
 	} else if (word.length == 5) {
 		if (pressed.key == word[0]) {
@@ -47,8 +58,14 @@ function buttonPressed(pressed) {
 			letters[3].innerText = word[3];
 		} else if (pressed.key == word[4]) {
 			letters[4].innerText = word[4];
+		} else {
+			guesses++;
+			document.querySelector(`#${hangman[hangmanCounter]}`).style.display =
+				"block";
+			hangmanCounter++;
 		}
 	}
+	console.log(guesses);
 }
 
 function wordPicker() {
@@ -84,11 +101,6 @@ function wordPicker() {
 }
 
 function winOrLose() {
-	guesses++;
-	//if guesses 5 lose
-	//check css hidden or innerText
-	//guess = 5 lose else win
-	console.log(guesses);
 	if (guesses >= 5) {
 		console.log("u lost");
 	}
